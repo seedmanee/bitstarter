@@ -6,7 +6,7 @@ var app = express.createServer(express.logger());
 app.get('/', function(request, response) {
   var filename = "./index.html";
   var buf = new Buffer(fs.readFileSync(filename));
-  response.writeHead(200, {"Content-Type": "text/plain"});
+  response.writeHead(200, {"Content-Type": "text/html"});
   response.write(buf.toString());
   response.end();
 });

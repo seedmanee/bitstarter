@@ -1,5 +1,6 @@
 var express = require('express'),
-    fs = require('fs');
+    fs = require('fs'),
+    path = require('path');
 
 var app = express.createServer(express.logger());
 
@@ -12,6 +13,9 @@ app.get('/', function(request, response) {
 });
 
 var port = process.env.PORT || 5000;
+
+app.use(express.static(path.join(__dirname, 'static')));
+
 app.listen(port, function() {
   console.log("Listening on " + port);
 });
